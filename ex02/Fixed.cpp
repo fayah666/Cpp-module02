@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/28 12:47:46 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:41:24 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,35 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-/*Operator*/
-
 Fixed	&Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->setRawBits(other.fpn);
 	return (*this);
+}
+
+// const Fixed	operator+(const Fixed& fixed)
+// {
+// 	return (Fixed(fixed.fpn));
+// }
+
+// const Fixed operator-(const Fixed& fixed)
+// {
+// 	return (Fixed(-fixed.fpn));
+// }
+
+const Fixed& operator++(Fixed& fixed)
+{
+	fixed.fpn++;
+	return(fixed);
+}
+
+const Fixed operator++(Fixed& fixed, int)
+{
+	Fixed before = fixed;
+	++fixed;
+	return (before);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)

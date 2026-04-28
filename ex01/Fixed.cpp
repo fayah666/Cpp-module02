@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/28 10:49:22 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/28 12:24:27 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,43 @@ Fixed::Fixed(const Fixed &other)
 	if (this != &other)
 		*this = other;
 }
+
+Fixed::Fixed(const int value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	fpn = value << fract_bit;
+}
+Fixed::Fixed(const float value)
+{
+	std::cout << "Float constructor called" << std::endl;
+	fpn = roundf(value * 256.0f);
+}
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+/*Operator*/
 Fixed	&Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		this->setRawBits(other.getRawBits());
+		this->setRawBits(other.fpn);
 	return (*this);
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
+{
+	float	value;
+
+	value = fixed.toFloat();
+
+	if (fixed.toInt() == value)
+		os << fixed.toInt();
+	else
+		os << value;
+	return (os);
 }
 
 int Fixed::getRawBits(void) const
@@ -44,4 +71,14 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	this->fpn = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return(this->fpn / 256.0f);
+}
+
+int	Fixed::toInt(void) const
+{
+	return (fpn >> fract_bit);
 }

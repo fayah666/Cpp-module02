@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/28 13:41:24 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/28 21:25:25 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,28 +48,36 @@ Fixed	&Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
-// const Fixed	operator+(const Fixed& fixed)
-// {
-// 	return (Fixed(fixed.fpn));
-// }
-
-// const Fixed operator-(const Fixed& fixed)
-// {
-// 	return (Fixed(-fixed.fpn));
-// }
-
-const Fixed& operator++(Fixed& fixed)
+bool Fixed::operator==(const Fixed& other) const
 {
-	fixed.fpn++;
-	return(fixed);
+	return (this->fpn == other.fpn);
 }
 
-const Fixed operator++(Fixed& fixed, int)
+bool Fixed::operator!=(const Fixed& other) const
 {
-	Fixed before = fixed;
-	++fixed;
-	return (before);
+	return (this->fpn != other.fpn);
 }
+
+bool Fixed::operator>(const Fixed& other) const
+{
+	return (this->fpn > other.fpn);
+}
+
+bool Fixed::operator<(const Fixed& other) const
+{
+	return (this->fpn < other.fpn);
+}
+
+bool Fixed::operator>=(const Fixed& other) const
+{
+	return (this->fpn >= other.fpn);
+}
+
+bool Fixed::operator<=(const Fixed& other) const
+{
+	return (this->fpn <= other.fpn);
+}
+
 
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 {
@@ -103,4 +111,37 @@ float	Fixed::toFloat(void) const
 int	Fixed::toInt(void) const
 {
 	return (fpn >> fract_bit);
+}
+
+Fixed &Fixed::operator++(void)
+{
+	this->fpn++;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	operator++();
+	return (tmp);
+}
+
+Fixed &Fixed::operator--(void)
+{
+	this->fpn--;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	operator--();
+	return (tmp);
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
 }

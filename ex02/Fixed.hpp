@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:11:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/28 13:33:33 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/28 21:25:25 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,26 @@ class Fixed
 		void setRawBits(int const raw);
 		// friend const Fixed operator+(const Fixed& fixed);
 		// friend const Fixed operator-(const Fixed& fixed);
-		friend	const Fixed&	 operator++(Fixed& fixed);
-		friend	const Fixed operator++(Fixed& fixed, int);
+		bool operator==(const Fixed& other) const;
+		bool operator!=(const Fixed& other) const;
+		bool operator>(const Fixed& other) const;
+		bool operator<(const Fixed& other) const;
+		bool operator>=(const Fixed& other) const;
+		bool operator<=(const Fixed& other) const;
 		friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 		float toFloat(void) const;
 		int toInt( void ) const;
+		Fixed operator*(const Fixed &other) const;
+		Fixed operator/(const Fixed &other) const;
+
+		Fixed &operator++(void);
+		Fixed operator++(int);
+		Fixed &operator--(void);
+		Fixed operator--(int);
+
+		static Fixed &min(Fixed &a, Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
+		static Fixed &max(Fixed &a, Fixed &b);
 };
 
 #endif //FIXED_HPP

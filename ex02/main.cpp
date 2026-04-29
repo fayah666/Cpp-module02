@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:22:18 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/28 21:14:08 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/29 10:54:31 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,14 @@
 
 int main( void )
 {
-	Fixed a;
-	Fixed b( 10 );
-	Fixed c( 11 );
-
-	if (b == c)
-		std::cout << "b and c are equal" << std::endl;
-	else
-		std::cout << "b and c are not equal" << std::endl;
-	if (b != c)
-		std::cout << "b and c are not equal" << std::endl;
-	else
-		std::cout << "b and c are equal" << std::endl;
-	if (b > c)
-		std::cout << "b is greater than c" << std::endl;
-	else
-		std::cout << "b is not greater than c" << std::endl;
-	if (b < c)
-		std::cout << "b is less than c" << std::endl;
-	else
-		std::cout << "b is not less than c" << std::endl;
-	if (b >= c)
-		std::cout << "b is greater than or equal to c" << std::endl;
-	else
-		std::cout << "b is not greater than or equal to c" << std::endl;
-	if (b <= c)
-		std::cout << "b is less than or equal to c" << std::endl;
-	else
-		std::cout << "b is not less than or equal to c" << std::endl;
+	Fixed		a;
+	Fixed const	b(Fixed(5.05f) * Fixed(2));
 	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
+	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
+	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
+	return (0);
 }

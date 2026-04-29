@@ -6,15 +6,14 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:22:18 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/28 12:46:38 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/29 10:51:01 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
 
-int	main( void )
-{
+int main(void) {
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );
@@ -28,5 +27,5 @@ int	main( void )
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
+	return (0);
 }

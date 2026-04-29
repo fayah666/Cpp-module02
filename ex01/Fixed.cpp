@@ -6,52 +6,38 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/28 12:47:46 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/04/29 10:49:46 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) : fpn(0)
-{
+Fixed::Fixed(void) : fpn(0) {
 	std::cout << "Default constructor called" << std::endl;
-}
-
-Fixed::Fixed(const Fixed &other)
-{
+} 
+Fixed::Fixed(const Fixed &other) {
 	std::cout << "Copy constructor called" << std::endl;
 	if (this != &other)
 		*this = other;
-}
-
-Fixed::Fixed(const int value)
-{
+} 
+Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called" << std::endl;
 	fpn = value << fract_bit;
-}
-Fixed::Fixed(const float value)
-{
+} 
+Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called" << std::endl;
 	fpn = roundf(value * 256.0f);
-}
-
-Fixed::~Fixed(void)
-{
+} 
+Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
-}
-
-/*Operator*/
-
-Fixed	&Fixed::operator=(const Fixed& other)
-{
+} 
+Fixed	&Fixed::operator=(const Fixed& other) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->setRawBits(other.fpn);
 	return (*this);
-}
-
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
-{
+} 
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 	float	value;
 
 	value = fixed.toFloat();
@@ -61,25 +47,17 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 	else
 		os << value;
 	return (os);
-}
-
-int Fixed::getRawBits(void) const
-{
+} 
+int Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->fpn);
-}
-
-void Fixed::setRawBits(int const raw)
-{
+} 
+void Fixed::setRawBits(int const raw) {
 	this->fpn = raw;
-}
-
-float	Fixed::toFloat(void) const
-{
+} 
+float	Fixed::toFloat(void) const {
 	return(this->fpn / 256.0f);
-}
-
-int	Fixed::toInt(void) const
-{
+} 
+int	Fixed::toInt(void) const {
 	return (fpn >> fract_bit);
 }

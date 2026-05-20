@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:22:18 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/29 10:51:01 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/20 20:10:42 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int main(void) {
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << "a toInt is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b toInt is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c toInt is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d toInt is " << d.toInt() << " as integer" << std::endl;
 	return (0);
 }

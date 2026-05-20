@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/25 19:59:14 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/29 10:48:59 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/20 20:05:11 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main(void) {
 	Fixed a;
-	Fixed b( a );
+	Fixed b(a);
 	Fixed c;
 	c = b;
 	std::cout << a.getRawBits() << std::endl;

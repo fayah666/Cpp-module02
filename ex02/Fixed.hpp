@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:11:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/20 19:56:00 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/20 20:16:01 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ class Fixed {
 		bool					operator>=(const Fixed& other) const;
 		bool					operator<=(const Fixed& other) const;
 		static	const Fixed	&max(const Fixed &a, const Fixed &b);
+		static	const Fixed	&min(const Fixed &a, const Fixed &b);
 };
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed);
 

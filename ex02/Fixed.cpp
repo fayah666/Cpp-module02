@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/29 10:21:53 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/20 20:16:18 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ const	Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 	if (a < b)
 		return (b);
 	return (a);
+}
+const	Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+	if (a < b)
+		return (a);
+	return (b);
 }
 bool	Fixed::operator==(const Fixed& other) const {
 	return (this->fpn == other.fpn);

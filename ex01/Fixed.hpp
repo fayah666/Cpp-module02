@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:11:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/04/29 10:53:45 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/05/20 19:55:47 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Fixed {
 		void					setRawBits(int const raw);
 		float					toFloat(void) const;
 		int						toInt( void ) const;
-		friend std::ostream&	operator<<(std::ostream& os, const Fixed& fixed);
 };
+std::ostream&	operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif //FIXED_HPP

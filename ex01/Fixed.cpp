@@ -6,39 +6,57 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/20 20:12:37 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/05 20:44:13 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <climits>
 
-Fixed::Fixed(void) : fpn(0) {
+static int clampRaw(long raw)
+{
+	if (raw > INT_MAX)
+		return (INT_MAX);
+	if (raw < INT_MIN)
+		return (INT_MIN);
+	return (int)raw;
+}
+
+Fixed::Fixed(void) : fpn(0)
+{
 	std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(const Fixed &other) {
+Fixed::Fixed(const Fixed &other)
+{
 	std::cout << "Copy constructor called" << std::endl;
 	if (this != &other)
 		*this = other;
 }
-Fixed::Fixed(const int value) {
+Fixed::Fixed(const int value)
+{
 	std::cout << "Int constructor called" << std::endl;
-	fpn = value << fract_bit;
+	fpn = clampRaw(static_cast<long>(value) << fract_bit);
 }
-Fixed::Fixed(const float value) {
+Fixed::Fixed(const float value)
+{
 	std::cout << "Float constructor called" << std::endl;
-	fpn = roundf(value * 256.0f);
+	long raw = static_cast<long>(roundf(value * 256.0f));
+	fpn = clampRaw(raw);
 }
-Fixed::~Fixed(void) {
+Fixed::~Fixed(void)
+{
 	std::cout << "Destructor called" << std::endl;
 }
-Fixed	&Fixed::operator=(const Fixed& other) {
+Fixed &Fixed::operator=(const Fixed &other)
+{
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->setRawBits(other.fpn);
 	return (*this);
 }
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-	float	value;
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+{
+	float value;
 
 	value = fixed.toFloat();
 
@@ -48,16 +66,20 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
 		os << value;
 	return (os);
 }
-int Fixed::getRawBits(void) const {
+int Fixed::getRawBits(void) const
+{
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->fpn);
 }
-void Fixed::setRawBits(int const raw) {
+void Fixed::setRawBits(int const raw)
+{
 	this->fpn = raw;
 }
-float	Fixed::toFloat(void) const {
-	return(this->fpn / 256.0f);
+float Fixed::toFloat(void) const
+{
+	return (this->fpn / 256.0f);
 }
-int	Fixed::toInt(void) const {
+int Fixed::toInt(void) const
+{
 	return (fpn >> fract_bit);
 }

@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:22:18 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/20 20:22:29 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/05 20:31:06 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main( void )
 	std::cout << "a++ " << a++ << std::endl;
 	std::cout << "a = " << a << std::endl;
 	std::cout << "b = " << b << std::endl;
-	std::cout << "max " << a << b << " = "<< Fixed::max(a, b) << std::endl;
-	std::cout << "min " << a << b << " = "<< Fixed::min(a, b) << std::endl;
+	std::cout << "max " << a << "" << b << " = "<< Fixed::max(a, b) << std::endl;
+	std::cout << "min " << a << "" << b << " = "<< Fixed::min(a, b) << std::endl;
 	std::cout << "comparison operators:" << std::endl;
 	std::cout << a << " > " << b << " : " << (a > b) << std::endl;
 	std::cout << a << " < " << b << " : " << (a < b) << std::endl;

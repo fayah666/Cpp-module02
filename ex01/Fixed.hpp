@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:11:56 by hfandres          #+#    #+#             */
-/*   Updated: 2026/05/20 19:55:47 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/08 11:12:09 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Fixed {
 		float					toFloat(void) const;
 		int						toInt( void ) const;
 };
+
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif //FIXED_HPP

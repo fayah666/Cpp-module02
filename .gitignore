@@ -1,3 +1,5 @@
 *.o
 fixed
-world_intro.md
+en.subject.md
+eval_sheet.md
+.gitignore

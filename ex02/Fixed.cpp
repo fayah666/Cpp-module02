@@ -6,32 +6,23 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/08 11:51:12 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/08 20:37:36 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <climits>
-
-static int clampRaw(long raw) {
-	if (raw > INT_MAX)
-		return (INT_MAX);
-	if (raw < INT_MIN)
-		return (INT_MIN);
-	return (int)raw;
-}
 
 Fixed::Fixed(void) : fpn(0 << fract_bit)
 {
 
 }
 
-Fixed::Fixed(const int value) : fpn(clampRaw(static_cast<long>(value) << fract_bit))
+Fixed::Fixed(const int value) : fpn(value << fract_bit)
 {
 
 }
 
-Fixed::Fixed(const float value) : fpn(clampRaw(static_cast<long>(roundf(value * 256.0f))))
+Fixed::Fixed(const float value) : fpn(roundf(value * 256.0f))
 {
 
 }
@@ -49,8 +40,9 @@ Fixed::~Fixed(void)
 
 Fixed	&Fixed::operator=(const Fixed& other)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		this->setRawBits(other.fpn);
+		this->fpn = other.getRawBits();
 	return (*this);
 }
 

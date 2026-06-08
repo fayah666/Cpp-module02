@@ -6,14 +6,15 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:22:18 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/08 13:29:32 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/08 20:39:15 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
 
-int main(void) {
+int main(void)
+{
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );

@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:22:18 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/08 20:21:04 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/09 10:10:12 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@ int main( void )
 	{
 		std::cout << "Basic test" << std::endl;
 		Fixed		a(0);
-		Fixed const	b(Fixed(5.05f) * Fixed(2));
+		Fixed	b(Fixed(5.05f) * Fixed(2));
 		std::cout << "a = " << a << std::endl;
 		std::cout << "++a = " << ++a << std::endl;
 		std::cout << "a = " << a << std::endl;
 		std::cout << "a++ " << a++ << std::endl;
 		std::cout << "a = " << a << std::endl;
+		std::cout << "b = " << b << std::endl;
+		std::cout << "--b = " << --b << std::endl;
+		std::cout << "b = " << b << std::endl;
+		std::cout << "b-- = " << b-- << std::endl;
 		std::cout << "b = " << b << std::endl;
 	}
 	{

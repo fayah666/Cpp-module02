@@ -6,7 +6,7 @@
 /*   By: hfandres <hfandres@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 10:17:13 by hfandres          #+#    #+#             */
-/*   Updated: 2026/06/08 20:37:36 by hfandres         ###   ########.fr       */
+/*   Updated: 2026/06/09 10:08:26 by hfandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ Fixed::~Fixed(void)
 
 Fixed	&Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->fpn = other.getRawBits();
 	return (*this);
@@ -92,8 +91,6 @@ Fixed&	Fixed::operator/=(const Fixed& other)
 
 Fixed	operator/(Fixed left, const Fixed &right)
 {
-	if (right == 0)
-		return (Fixed());
 	left /= right;
 	return (left);
 }
